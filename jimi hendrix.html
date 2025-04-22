@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guitar Legends</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: black;
+      color: white;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .tabcontent {
+      display: none;
+    }
+    .tabcontent.active {
+      display: block;
+    }
+    .card {
+      background-color: #1f2937;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      margin-bottom: 3rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .box {
+      background-color: #374151;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: white;
+      color: black;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    button.active {
+      background: #4f46e5;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guitar Legends</h1>
+  <div class="tabs">
+    <button onclick="showTab('hendrix')" class="active">Jimi Hendrix</button>
+    <button onclick="showTab('morello')">Tom Morello</button>
+    <button onclick="showTab('page')">Jimmy Page</button>
+  </div>
+
+  <div id="hendrix" class="tabcontent active">
+    <div class="card">
+      <div class="grid grid-2">
+        <div class="grid">
+          <div class="box">[상자: 지미 헨드릭스 이미지]</div>
+          <div class="box">[상자: 기타 정보 - Fender 1964 Stratocaster "Linda"]</div>
+        </div>
+        <div class="box">[상자: 지미 헨드릭스 설명]</div>
+      </div>
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        <div class="box">[상자: 기타 부품 설명 - 예: Rosewood 지판, Headstock, 픽업]</div>
+        <div class="box">[상자: 사용한 이펙터들 - 예: Fuzz Face, Wah, Univibe]</div>
+        <div class="box">[상자: 이펙트가 사운드에 준 영향 설명]</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="morello" class="tabcontent">
+    <div class="card">
+      <div class="grid grid-2">
+        <div class="box">[상자: 톰 모렐로 이미지]</div>
+        <div class="box">[상자: 톰 모렐로 설명]</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="page" class="tabcontent">
+    <div class="card">
+      <div class="grid grid-2">
+        <div class="box">[상자: 지미 페이지 이미지]</div>
+        <div class="box">[상자: 지미 페이지 설명]</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(id) {
+      const tabs = document.querySelectorAll('.tabcontent');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.tabs button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
